@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core">
+
+<h:head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta name="description" content=""/>
+	<meta name="author" content=""/>
+	
+		<link href="#{request.contextPath}/resources/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+		<link href="#{request.contextPath}/resources/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+</h:head>
+
+
+<h:body>
+	<div class="container">
+		<div class="navbar navbar-inverse">
+			<div class="navbar-brand">Página Inicial</div>
+			<div class="navbar-brand">Lojas</div>
+			<div class="navbar-brand">Produtos</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<h:form styleClass="form-horizontal" id="form">
+					<div class="form-group">
+						<h:outputLabel value="Nome:" styleClass="control-label col-sm-2" />
+						<div class="col-sm-5">
+							<h:outputText value="#{lojaController.loja.nomeLoja}"
+								styleClass="form-control" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<h:outputLabel value="E-mail:" styleClass="control-label col-sm-2" />
+						<div class="col-sm-5">
+							<h:outputText value="#{lojaController.loja.email}"
+								styleClass="form-control" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<h:outputLabel value="Telefone:"
+							styleClass="control-label col-sm-2" />
+						<div class="col-sm-2">
+							<h:outputText value="#{lojaController.loja.telefone}"
+								styleClass="form-control" />
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<c:choose>
+								<c:when test="false">
+									<h:inputHidden value="#{lojaController.loja.nomeLoja}" />
+									<h:commandButton action="#{lojaController.teste()}" rendered="form"
+										value="Atualizar" styleClass="btn btn-default" />
+								</c:when>
+								<c:otherwise>
+									<h:commandButton action="#{lojaController.teste()}"
+										value="Criar" styleClass="btn btn-default" />
+								</c:otherwise>
+							</c:choose>
+						</div>
+
+					</div>
+				</h:form>
+			</div>
+		</div>
+
+	</div>
+</h:body>
+</html>
