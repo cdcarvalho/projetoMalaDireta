@@ -16,7 +16,7 @@ public class GenericDAO<T> {
 	public GenericDAO() {
 		this.entityManager = JPAUtil.getEntityManager();
 	}
-
+	
 	public void salvar(T entity) {
 		entityManager.persist(entity);
 		entityManager.flush();

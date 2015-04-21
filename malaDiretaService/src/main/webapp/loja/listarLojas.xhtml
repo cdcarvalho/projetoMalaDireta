@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+
+<h:body>
+	<ui:composition template="/template/template.xhtml">
+
+		<ui:define name="corpo">
+			<div class="row" style="margin-top: 100px">
+				<div class="col-xs-12">
+					<h:form styleClass="form-horizontal" id="form">
+						
+					<table id="lojas" class="table table-bordered table-striped" >
+							<thead>
+								<tr>
+									<th><center>CNPJ</center></th>
+									<th><center>NOME</center></th>
+									<th><center>EMAIL</center></th>
+									<th><center>TELEFONE</center></th>
+									<th><center>AÇÃO</center></th>
+								</tr>
+							</thead>
+
+						<tbody>
+							<ui:repeat var="loja" value="#{lojaController.listarLojas()}">
+								<tr>
+									<td>#{loja.cnpj}</td>
+									<td>#{loja.nomeLoja}</td>
+									<td>#{loja.email}</td>
+									<td>#{loja.telefone}</td>
+
+									<td><h:form>
+											<h:commandLink action="#{lojaController.salvar()}"
+												title="Editar">
+												<i class="glyphicon glyphicon-edit"></i>
+											</h:commandLink>
+											<h:commandLink action="#{lojaController.salvar()}"
+												title="Excluir">
+												<i class="glyphicon glyphicon-trash"></i>
+											</h:commandLink>
+										</h:form></td>
+								</tr>
+							</ui:repeat>
+						</tbody>
+					</table>
+					</h:form>
+				</div>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

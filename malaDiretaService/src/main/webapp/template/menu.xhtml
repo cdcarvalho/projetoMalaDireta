@@ -26,16 +26,28 @@
 		
 <div class="container" style="margin-top: 1%">
    <ul class="nav nav-tabs">
-    <li class="active"><a href="#{request.contextPath}/inicial.jsf">Página Inicial</a></li>
+    <li class="active"><a href="#{request.contextPath}/inicial.jsf">Página Inicial<span style="margin-left: 5px" class="glyphicon glyphicon-home"></span></a></li> 
     <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Loja<span class="caret"></span></a>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Loja<span style="margin-left: 5px" class="glyphicon glyphicon-collapse-down"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="#{request.contextPath}/loja/cadastrar.jsf">Cadastrar</a></li>
+        <li><a href="#{request.contextPath}/loja/listarLojas.jsf">Listar</a></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Produto<span style="margin-left: 5px" class="glyphicon glyphicon-collapse-down"></span></a>
       <ul class="dropdown-menu">
         <li><a href="#{request.contextPath}/loja/cadastrar.jsf">Cadastrar</a></li>
         <li><a href="#">Listar</a></li>
       </ul>
     </li>
-    <li><a href="#">Produto</a></li>
-    <li><a href="#">Menu 3</a></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categorias<span style="margin-left: 5px" class="glyphicon glyphicon-collapse-down"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="#{request.contextPath}/loja/cadastrar.jsf">Cadastrar</a></li>
+        <li><a href="#">Listar</a></li>
+      </ul>
+    </li>
   </ul>
   </div>
 

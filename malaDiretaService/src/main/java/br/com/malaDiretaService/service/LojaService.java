@@ -27,4 +27,8 @@ public class LojaService implements Serializable {
 	public Loja buscarLojaPorId(Integer idLoja){
 		return lojaDAO.buscarPorId(idLoja);
 	} 
+	
+	public void persistir(Loja loja) {
+		lojaDAO.salvar(loja);
+	}
 }
