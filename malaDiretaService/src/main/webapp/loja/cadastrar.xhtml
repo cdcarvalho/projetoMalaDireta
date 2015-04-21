@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core">
+
+<h:head>
+</h:head>
+
+
+<h:body>
+	<ui:composition template="/template/template.xhtml">
+
+		<ui:define name="corpo">
+			<div class="row" style="margin-top: 100px">
+				<div class="col-xs-12">
+					<h:form styleClass="form-horizontal" id="form">
+						<div class="form-group">
+							<h:outputLabel value="Nome:" styleClass="control-label col-sm-2" />
+							<div class="col-sm-5">
+								<h:outputText value="#{lojaController.loja.nomeLoja}"
+									styleClass="form-control" />
+							</div>
+						</div>
+
+						<div class="form-group">
+							<h:outputLabel value="E-mail:"
+								styleClass="control-label col-sm-2" />
+							<div class="col-sm-5">
+								<h:outputText value="#{lojaController.loja.email}"
+									styleClass="form-control" />
+							</div>
+						</div>
+
+						<div class="form-group">
+							<h:outputLabel value="Telefone:"
+								styleClass="control-label col-sm-2" />
+							<div class="col-sm-2">
+								<h:outputText value="#{lojaController.loja.telefone}"
+									styleClass="form-control" />
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<h:commandButton action="#{lojaController.teste()}"
+									value="Criar Lojas" styleClass="btn btn-default" />
+								<h:commandButton style="margin-left:10px"
+									action="#{lojaController.limparLojas()}" value="Limpar Lojas"
+									styleClass="btn btn-default" />
+							</div>
+
+						</div>
+					</h:form>
+
+					<table class="table table-bordered table-striped">
+						<c:if test="#{lojaController.getLojas.size() > 0}">
+							<thead>
+								<tr>
+									<th><center>CNPJ</center></th>
+									<th><center>NOME</center></th>
+									<th><center>EMAIL</center></th>
+									<th><center>TELEFONE</center></th>
+									<th><center>AÇÃO</center></th>
+								</tr>
+							</thead>
+						</c:if>
+
+						<tbody>
+							<ui:repeat var="loja" value="#{lojaController.getLojas}">
+								<tr>
+									<td>#{loja.cnpj}</td>
+									<td>#{loja.nomeLoja}</td>
+									<td>#{loja.email}</td>
+									<td>#{loja.telefone}</td>
+
+									<td><h:form>
+											<h:commandLink action="#{lojaController.teste()}"
+												title="Editar">
+												<i class="glyphicon glyphicon-edit"></i>
+											</h:commandLink>
+											<h:commandLink action="#{lojaController.teste()}"
+												title="Excluir">
+												<i class="glyphicon glyphicon-trash"></i>
+											</h:commandLink>
+										</h:form></td>
+								</tr>
+							</ui:repeat>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
