@@ -9,6 +9,7 @@ import javax.faces.bean.ViewScoped;
 
 import br.com.malaDiretaService.model.Loja;
 import br.com.malaDiretaService.service.LojaService;
+import br.com.malaDiretaService.util.Utilitario;
 
 @ManagedBean(name = "lojaController")
 @ViewScoped
@@ -25,13 +26,19 @@ public class LojaController implements Serializable {
 	if (this.loja != null) {
 	    lojaService.persistir(loja);
 	}
+	limparFormulario();
+	Utilitario.mensagemOperacaoRealizadaSucesso();
+    }
+    
+    public void excluir(Loja loja){
+	lojaService.deletar(loja);
     }
 
     public List<Loja> listarLojas() {
 	return lojaService.listarTodos();
     }
 
-    public void limparLojas() {
+    public void limparFormulario() {
 	lojas.clear();
 	loja = new Loja();
     }
@@ -51,5 +58,6 @@ public class LojaController implements Serializable {
     public void setGetLojas(List<Loja> getLojas) {
 	this.lojas = getLojas;
     }
+    
 
 }

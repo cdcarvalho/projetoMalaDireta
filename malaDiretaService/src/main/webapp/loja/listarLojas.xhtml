@@ -9,48 +9,53 @@
 <h:head>
 </h:head>
 
-
 <h:body>
 	<ui:composition template="/template/template.xhtml">
+	
 
 		<ui:define name="corpo">
-			<div class="row" style="margin-top: 100px">
+			<div class="row" style="margin-top: 20px">
+				
 				<div class="col-xs-12">
 					<h:form styleClass="form-horizontal" id="form">
-						
-					<table id="lojas" class="table table-bordered table-striped" >
+	
+				<div id="tabela" style="margin-left: 100px; width: 85%">
+								
+					<div id="labelTabela" style="margin-top:10px; margin-left: 450px; font-size:large;">
+						<p:outputLabel styleClass="fonte" value="LISTA DE LOJAS CADASTRADAS"/>
+					</div>		
+					
+					<table id="lojas" class="table table-bordered table-striped" style="margin-top: 20px;">
 							<thead>
 								<tr>
-									<th><center>CNPJ</center></th>
-									<th><center>NOME</center></th>
-									<th><center>EMAIL</center></th>
-									<th><center>TELEFONE</center></th>
-									<th><center>AÇÃO</center></th>
+									<th width="200"><center>CNPJ</center></th>
+									<th width="300"><center>NOME</center></th>
+									<th width="240"><center>EMAIL</center></th>
+									<th width="140"><center>TELEFONE</center></th>
+									<th width="70"><center>AÇÃO</center></th>
 								</tr>
 							</thead>
 
 						<tbody>
-							<ui:repeat var="loja" value="#{lojaController.listarLojas()}">
-								<tr>
-									<td>#{loja.cnpj}</td>
-									<td>#{loja.nomeLoja}</td>
-									<td>#{loja.email}</td>
-									<td>#{loja.telefone}</td>
+								<ui:repeat var="loja" value="#{lojaController.listarLojas()}">
+									<tr>
+										<td>#{loja.cnpj}</td>
+										<td>#{loja.nomeLoja}</td>
+										<td>#{loja.email}</td>
+										<td>#{loja.telefone}</td>
 
-									<td><h:form>
-											<h:commandLink action="#{lojaController.salvar()}"
-												title="Editar">
+										<td>
+											<h:commandLink action="#{lojaController.salvar()}" title="Editar">
 												<i class="glyphicon glyphicon-edit"></i>
-											</h:commandLink>
-											<h:commandLink action="#{lojaController.salvar()}"
-												title="Excluir">
+											</h:commandLink> <h:commandLink action="#{lojaController.excluir(loja)}" title="Excluir">
 												<i class="glyphicon glyphicon-trash"></i>
 											</h:commandLink>
-										</h:form></td>
-								</tr>
-							</ui:repeat>
-						</tbody>
-					</table>
+										</td>
+									</tr>
+								</ui:repeat>
+							</tbody>
+						 </table>
+					    </div>
 					</h:form>
 				</div>
 			</div>
