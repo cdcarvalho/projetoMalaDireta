@@ -35,4 +35,8 @@ public class LojaService implements Serializable {
 	public void deletar(Loja loja) {
 		lojaDAO.delete(loja);
 	}
+	
+	public void atualizar(Loja loja) {
+		lojaDAO.atualizar(loja);
+	}
 }

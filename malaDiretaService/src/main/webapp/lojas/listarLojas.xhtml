@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+<h:body>
+	<ui:composition template="/template/template.xhtml">
+	
+
+		<ui:define name="corpo">
+			<div class="row" style="margin-top: 20px">
+				
+				<div class="col-xs-12">
+					<h:form styleClass="form-horizontal" id="form">
+	
+				<div id="tabela" style="margin-left: 100px; width: 85%">
+				
+								
+					<div id="labelTabela" style="margin-top:10px; margin-left: 450px; font-size:large;">
+						<p:outputLabel styleClass="fonte" value="#{msg['messages.listaDeLojas']}"/>
+					</div>
+
+							<p:dataTable id="tb" rows="10" lazy="true" var="loja" paginatorPosition="bottom" paginator="true"
+								value="#{lojaController.listarLojas()}">
+
+									<p:column headerText="#{msg['messages.cnpj']}" width="300">
+										<h:outputText value="#{loja.cnpj}" />
+									</p:column>
+									
+									<p:column headerText="#{msg['messages.nome']}" width="280">
+										<h:outputText value="#{loja.nomeLoja}" />
+									</p:column>
+									
+									<p:column headerText="#{msg['messages.email']}" width="280">
+										<h:outputText value="#{loja.email}" />
+									</p:column>
+									
+									<p:column headerText="#{msg['messages.telefone']}" width="180">
+										<h:outputText value="#{loja.telefone}" />
+									</p:column>
+									
+									<p:column headerText="#{msg['messages.acao']}" width="70">
+										<h:commandLink action="/lojas/alterar.jsf" title="#{msg['messages.alterar']}">
+											<i class="glyphicon glyphicon-edit"></i>
+											<f:param name="id" value="#{loja.idLoja}"></f:param>
+										</h:commandLink> 
+										<h:commandLink action="#{lojaController.excluir(loja)}" title="#{msg['messages.excluir']}">
+											<i class="glyphicon glyphicon-trash"></i>
+										</h:commandLink>
+									</p:column>
+							</p:dataTable>
+					    </div>
+					</h:form>
+				</div>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

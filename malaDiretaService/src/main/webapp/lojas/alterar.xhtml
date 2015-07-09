@@ -22,15 +22,15 @@
 						
 						<p:fieldset legend="Dados da Loja" styleClass="centered" style="margin-left:105px; width: 700px;">
 						<div class="form-group">
-							<p:outputLabel value="CNPJ/CPF:" styleClass="control-label col-sm-2" />
+							<p:outputLabel value="#{msg['messages.cnpj']}" styleClass="control-label col-sm-2" />
 							<div class="col-sm-3">
-								<p:inputText id="cnpjCpf" type="text" required="true" styleClass="form-control" value="#{lojaController.loja.cnpj}"
-								requiredMessage="O campo CNPJ/CPF não foi informado" />
+								<p:inputText id="cnpj" type="text" required="true" styleClass="form-control" value="#{lojaController.loja.cnpj}"
+								requiredMessage="O campo CNPJ não foi informado" />
 							</div>
 						</div>
 						
 						<div class="form-group">
-							<p:outputLabel value="Nome:" styleClass="control-label col-sm-2" />
+							<p:outputLabel value="#{msg['messages.nome']}" styleClass="control-label col-sm-2" />
 							<div class="col-sm-5">
 								<p:inputText id="nomeLoja" type="text" required="true"	styleClass="form-control" value="#{lojaController.loja.nomeLoja}" 
 								requiredMessage="O campo Nome não foi informado" />
@@ -38,7 +38,7 @@
 						</div>
 
 						<div class="form-group">
-							<p:outputLabel value="E-mail:"
+							<p:outputLabel value="#{msg['messages.email']}"
 								styleClass="control-label col-sm-2" />
 							<div class="col-sm-4">
 								<p:inputText id="email" type="text" required="true" styleClass="form-control" value="#{lojaController.loja.email}" 
@@ -47,7 +47,7 @@
 						</div>
 
 						<div class="form-group">
-							<p:outputLabel value="Telefone:"
+							<p:outputLabel value="#{msg['messages.telefone']}"
 								styleClass="control-label col-sm-2" />
 							<div class="col-sm-3">
 								<p:inputText id="telefone" type="text" required="true" styleClass="form-control" value="#{lojaController.loja.telefone}" 
@@ -57,7 +57,7 @@
 
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-10">
-								<p:commandButton action="#{lojaController.salvar()}" value="Salvar" styleClass="btn btn-default" update="form"/>
+								<p:commandButton action="#{lojaController.alterar()}" value="#{msg['messages.alterar']}" styleClass="btn btn-default" update="form"/>
 							</div>
 						</div>
 					</p:fieldset>

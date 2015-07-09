@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+
+<h:body>
+	<ui:composition template="/template/template.xhtml">
+
+		<ui:define name="corpo">
+			<div class="row" style="margin-top: 70px">
+				<div class="col-xs-12">
+					<h:form styleClass="form-horizontal" id="form">
+						
+						<p:messages id="messages" style="margin-left:105px; width: 400px;" />
+						
+						<p:fieldset legend="Dados da Loja" styleClass="centered" style="margin-left:105px; width: 700px;">
+						<div class="form-group">
+							<p:outputLabel value="#{msg['messages.cnpj']}" styleClass="control-label col-sm-2" />
+							<div class="col-sm-3">
+								<p:inputText id="cnpj" type="text" required="true" styleClass="form-control" value="#{lojaController.loja.cnpj}"
+								requiredMessage="O campo CNPJ não foi informado" />
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<p:outputLabel value="#{msg['messages.nome']}" styleClass="control-label col-sm-2" />
+							<div class="col-sm-5">
+								<p:inputText id="nomeLoja" type="text" required="true"	styleClass="form-control" value="#{lojaController.loja.nomeLoja}" 
+								requiredMessage="O campo Nome não foi informado" />
+							</div>
+						</div>
+
+						<div class="form-group">
+							<p:outputLabel value="#{msg['messages.email']}"
+								styleClass="control-label col-sm-2" />
+							<div class="col-sm-4">
+								<p:inputText id="email" type="text" required="true" styleClass="form-control" value="#{lojaController.loja.email}" 
+								requiredMessage="O campo E-mail não foi informado" />
+							</div>
+						</div>
+
+						<div class="form-group">
+							<p:outputLabel value="#{msg['messages.telefone']}"
+								styleClass="control-label col-sm-2" />
+							<div class="col-sm-3">
+								<p:inputText id="telefone" type="text" required="true" styleClass="form-control" value="#{lojaController.loja.telefone}" 
+								requiredMessage="Existe campos que não foram preenchidos" />
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<p:commandButton action="#{lojaController.salvar()}" value="#{msg['messages.salvar']}" styleClass="btn btn-default" update="form"/>
+							</div>
+						</div>
+					</p:fieldset>
+					</h:form>
+				</div>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
