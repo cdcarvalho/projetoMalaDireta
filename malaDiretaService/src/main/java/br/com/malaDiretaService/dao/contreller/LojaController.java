@@ -93,4 +93,5 @@ public class LojaController implements Serializable {
 	this.lojas = getLojas;
     }
 
+
 }
